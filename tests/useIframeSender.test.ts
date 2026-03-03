@@ -4,14 +4,15 @@
 
 import { renderHook } from '@testing-library/react';
 import { useRef } from 'react';
+import { vi, beforeEach, describe, it, expect } from 'vitest';
 import { useIframeSender } from '../src/hooks/useIframeSender';
 
 // Mock postMessage
-global.postMessage = jest.fn();
+global.postMessage = vi.fn() as any;
 
 describe('useIframeSender', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it('应该正确初始化', () => {
@@ -35,7 +36,7 @@ describe('useIframeSender', () => {
   it('应该发送单向消息', () => {
     const iframeRef = useRef<HTMLIFrameElement>(null);
     const mockContentWindow = {
-      postMessage: jest.fn(),
+      postMessage: vi.fn(),
     };
     iframeRef.current = {
       contentWindow: mockContentWindow as any,
@@ -59,7 +60,7 @@ describe('useIframeSender', () => {
   it('应该发送请求并返回 Promise', async () => {
     const iframeRef = useRef<HTMLIFrameElement>(null);
     const mockContentWindow = {
-      postMessage: jest.fn(),
+      postMessage: vi.fn(),
     };
     iframeRef.current = {
       contentWindow: mockContentWindow as any,

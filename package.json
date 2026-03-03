@@ -26,17 +26,10 @@
   ],
   "scripts": {
     "dev": "vite",
-    "dev:parent": "vite --port 3000",
-    "dev:iframe": "vite --port 3001",
     "build": "tsup",
-    "build:lib": "tsup",
-    "build:site": "vite build",
     "test": "vitest",
-    "test:ui": "vitest --ui",
-    "lint": "eslint src",
     "type-check": "tsc --noEmit",
-    "prepublishOnly": "pnpm run build",
-    "preview": "vite preview"
+    "prepublishOnly": "pnpm run build"
   },
   "keywords": [
     "react",
@@ -56,11 +49,11 @@
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.2.1",
-    "@vitest/ui": "^1.5.0",
-    "eslint": "^9.0.0",
     "jsdom": "^24.0.0",
     "tsup": "^8.0.0",
     "typescript": "^5.4.0",
